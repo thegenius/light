@@ -33,7 +33,7 @@
     "url": "https://github.com/PanJiaChen/vue-element-admin/issues"
   },
   "dependencies": {
-    "axios": "0.17.1",
+    "axios": "^0.17.1",
     "clipboard": "1.7.1",
     "codemirror": "5.32.0",
     "connect": "3.6.6",
@@ -49,6 +49,7 @@
     "mockjs": "1.0.1-beta3",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
+    "qs": "^6.5.2",
     "screenfull": "3.3.2",
     "serve-static": "1.13.2",
     "showdown": "1.8.5",
