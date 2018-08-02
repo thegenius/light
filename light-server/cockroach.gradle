@@ -1,0 +1,47 @@
+import org.gradle.api.tasks.Exec
+
+group = "com.lvonce"
+version = "1.0"
+
+task cockroachBootstrap1(type: Exec) {
+    workingDir '.'
+    def command = [
+            'cockroach',
+            'start',
+            '--insecure',
+            '--store=.cockroach-data/node1',
+            '--host=localhost',
+            '--http-port=9090'
+    ]
+    commandLine command
+}
+
+task cockroachBootstrap2(type: Exec) {
+    workingDir '.'
+    def command = [
+            'cockroach',
+            'start',
+            '--insecure',
+            '--store=cockroach-data/node2',
+            '--host=localhost',
+            '--port=26258',
+            '--http-port=9091',
+            '--join=localhost:26257'
+    ]
+    commandLine command
+}
+
+task cockroachBootstrap3(type: Exec) {
+    workingDir '.'
+    def command = [
+            'cockroach',
+            'start',
+            '--insecure',
+            '--store=cockroach-data/node3',
+            '--host=localhost',
+            '--port=26259',
+            '--http-port=9092',
+            '--join=localhost:26257'
+    ]
+    commandLine command
+}

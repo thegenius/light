@@ -1,0 +1,31 @@
+server:
+    port: 8008
+
+spring:
+
+    redis:
+      host: 127.0.0.1
+      database: 0
+
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+
+    datasource:
+        name: test
+        url: jdbc:postgresql://115.29.17.166:26257/school?sslmode=disable
+        username: "testuser"
+        password: ""
+        driver-class-name: org.postgresql.Driver
+
+    servlet:
+      multipart:
+        enabled: true
+        file-size-threshold: 2KB
+        max-file-size: 200MB
+        max-request-size: 215MB
+
+file:
+    upload-dir: ./uploads

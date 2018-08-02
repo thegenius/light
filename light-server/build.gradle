@@ -7,13 +7,18 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("com.vanniktech:gradle-dependency-graph-generator-plugin:0.5.0")
     }
 }
+
+apply from: 'nginx.gradle'
+apply from: 'cockroach.gradle'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: "com.vanniktech.dependency.graph.generator"
 
 group = 'com.lvonce'
 version = '0.0.1-SNAPSHOT'
@@ -25,7 +30,20 @@ repositories {
 
 
 dependencies {
+    compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-logging')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.boot:spring-boot-configuration-processor')
+
+    compile('commons-io:commons-io:2.6')
+    compile('org.postgresql:postgresql:42.2.4')
+
+    testCompile('io.rest-assured:rest-assured:3.1.0')
+    testCompile('io.rest-assured:spring-mock-mvc:3.1.0')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
     runtime('org.springframework.boot:spring-boot-devtools')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')

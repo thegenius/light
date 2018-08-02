@@ -1,0 +1,12 @@
+group = "com.lvonce"
+version = "1.0"
+
+task runNginx(type: Exec) {
+    workingDir './tools/nginx'
+    def command = [
+            './tools/nginx/nginx.exe',
+            '-c', './conf/nginx.conf'
+
+    ]
+    commandLine command
+}

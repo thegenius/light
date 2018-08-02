@@ -1,5 +1,6 @@
 .gradle
 /build/
+/tools/nginx/logs/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
